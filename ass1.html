@@ -4,35 +4,81 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap" rel="stylesheet">
-    <title>Assignment 1</title>
-    <link rel="stylesheet" href="ass1.css">
+    <title> Unit Converter</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <main>
-        <div class="row">
-            <div class="columns">
-                <div class="brd">
-                    <h1 class="word"> Celsius to Farenheit </h1>
-                </div>
-            </div>
-            <div class="columns">
-                <div class="brd">
-                    <h1 class="word"> Farenheit to Celsius </h1>
-                </div>
-            </div>
-            <div class="columns">
-                <div class="brd">
-                    <h1 class="word"> Meters to Feet     </h1>
-                </div>
-            </div>
-            <div class="columns">
-                <div class="brd">
-                    <h1 class="word"> Feet to Meters </h1> 
-                </div>
-            </div>
-        </div>
-    </main>
+<body> <main>
+    <div class="converter-body">
+        <h1 class="converter-title"> Converter </h1>
+        <input type="text" placeholder="Input" id="input" onkeyup="myResult()">
+        <span>=</span>
+        <input type="text" placeholder="Result" id="result">
+
+        <select id="inputType" onchange="myResult()">
+            <option value="celsius">Celsius</option>
+            <option value="farenheit">Farenheit</option>
+            <option value="meter">Meter</option>
+            <option value="feet">Feet</option>
+        </select>
+
+        <select id="resultType" onchange="myResult()">
+            <option value="celsius">Celsius</option>
+            <option value="farenheit">Farenheit</option>
+            <option value="meter">Meter</option>
+            <option value="feet">Feet</option>
+        </select>
+    </div>
+
+    <script>
+        var input = document.getElementById('input');
+        var result = document.getElementById('result');
+        var inputType = document.getElementById('inputType');
+        var resultType = document.getElementById('resultType');
+        var inputTypeValue, resultTypeValue;
+
+
+inputTypeValue = inputType.value;
+resultTypeValue = resultType.value;
+
+
+function myResult(){
+    // when we change the input and output type value, we need to update the inputTypeValue and resultTypeValue
+
+    inputTypeValue = inputType.value;
+    resultTypeValue = resultType.value;
+
+    //no compare input and resultType value and add formula
+    
+    if(inputTypeValue === "celsius" && resultTypeValue === "farenheit"){
+        result.value = (Number(input.value) * 1.8) + 32;
+    }
+    else if(inputTypeValue === "farenheit" && resultTypeValue === "celsius"){
+        result.value = (Number(input.value) - 32) / 1.8;
+    }
+    else if(inputTypeValue === "celsius" && resultTypeValue === "celsius"){
+        result.value = input.value;
+    }
+    else if(inputTypeValue === "farenheit" && resultTypeValue === "farenheit"){
+        result.value = input.value;
+    }
+    else if(inputTypeValue === "meter" && resultTypeValue === "kilometer"){
+        result.value = Number(input.value) * 1000;
+    }
+    else if(inputTypeValue === "kilometer" && resultTypeValue === "kilometer"){
+        result.value = Number(input.value) / 1000;
+    }
+    else if(inputTypeValue === "meter" && resultTypeValue === "meter"){
+        result.value = input.value;
+    }
+    else if(inputTypeValue === "kilometer" && resultTypeValue === "kilometer"){
+        result.value = input.value;
+    }
+    else{
+        input.value, result.value = ""
+    }
+
+    document.getElementById('result').value=result.value;
+}
+    </script>
+</main> </body>
 </html>
