@@ -27,7 +27,21 @@ main{
     margin: 13px 0px;
 }
 
-#afterTax{
-    margin-top: 24px;
-    margin-left: 110px;
+input{
+    height: 25;
+    text-align: center;
+}
+
+#input{
+    margin-left: 25px;
+}
+
+#inputType, #resultType{
+    width: 169px;
+    margin-left: 25px;
+    color: red
+}
+
+#resultType{
+    margin-left: 15px;
 }
