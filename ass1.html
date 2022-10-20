@@ -61,16 +61,16 @@ function myResult(){
     else if(inputTypeValue === "farenheit" && resultTypeValue === "farenheit"){
         result.value = input.value;
     }
-    else if(inputTypeValue === "meter" && resultTypeValue === "kilometer"){
-        result.value = Number(input.value) * 1000;
+    else if(inputTypeValue === "feet" && resultTypeValue === "meter"){
+        result.value = Number(input.value) * 0.3048;
     }
-    else if(inputTypeValue === "kilometer" && resultTypeValue === "kilometer"){
-        result.value = Number(input.value) / 1000;
+    else if(inputTypeValue === "meter" && resultTypeValue === "feet"){
+        result.value = Number(input.value) / 0.3048;
     }
     else if(inputTypeValue === "meter" && resultTypeValue === "meter"){
         result.value = input.value;
     }
-    else if(inputTypeValue === "kilometer" && resultTypeValue === "kilometer"){
+    else if(inputTypeValue === "feet" && resultTypeValue === "feet"){
         result.value = input.value;
     }
     else{
